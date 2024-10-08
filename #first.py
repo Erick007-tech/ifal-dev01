@@ -20,4 +20,5 @@ elif fome>=10:
 print( )
 
 print(fome)
+print(beleza)
 
