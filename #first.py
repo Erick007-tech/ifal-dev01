@@ -1,6 +1,6 @@
 #first
-beleza=0
-fome=0
+beleza=input(Dê um numero para a beleza de Jorge)
+fome=input(Dê um numero para a fome de Jorge)
 
 if beleza<=0:
   print("jorge é feio")
