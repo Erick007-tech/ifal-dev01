@@ -1,18 +1,24 @@
-#escolher os numeros para operação
-x=int(input("digite o primeiro numer: ")) 
-y=int(input("digite o segundo numero: "))
-
+#escolher primeiro número
+x=float(input("digite o primeiro numer: ")) 
 
 #possibilita a escolha de operação
-escolha=input("Escolha a operacão dessas operações: x, :, -, + ||| ")
+escolha=input("Escolha a operacão dessas operações: x, :, -, +, ^ ||| ")
 
+#escolher segundo número
+y=float(input("digite o segundo numero: "))
 
-#exculta a operação de acordo com a escolha
+#execulta a operação de acordo com a escolha
 if escolha=="x":
-  print(f"{x} x {y} = {x*y}")
+  resultado=x*y
 elif escolha=="/":
-  print(f"{x} : {y} = {x/y}")
+  resultado=x/y
 elif escolha=="+":
-  print(f"{x} + {y} = {x+y}")
+  resultado=x+y
 elif escolha=="-":
-  print(f"{x} - {y} = {x-y}")
+  resultado=x-y
+elif escolha=="^":
+  resultado=x**y
+
+resultado=f"{resultado:_.2f}"
+resultado=resultado.replace(".", ",").replace("_", ".") #As linhas 22 e 23 fazem que numeros grandes estejam escritos de acordo com a escrita de numeros brasileira
+print(f"{x} {escolha} {y} = {resultado}") #Mostra os números escolhidos a operação e o resultado final
