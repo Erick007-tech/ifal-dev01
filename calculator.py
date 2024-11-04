@@ -1,22 +1,44 @@
-#escolher primeiro número
-x=float(input("digite o primeiro numer: ").replace(",", ".")) 
+#definir a expressão que ira ser feita
+texto=input("digite um calculo. ex: (1 + 1): ") 
 
-#possibilita a escolha de operação
-escolha=input("Escolha a operacão dessas operações: x, :, -, +, * ||| ")
+# substitue as operações em codigo para como comummente vemos
+if "**" in texto:
+  texto=texto.replace("**", "^")
+elif "*" in texto:
+  texto=texto.replace("*", "x")
 
-#escolher segundo número
-y=float(input("digite o segundo numero: ").replace(",", "."))
+# colocar um espaço entre os numeros  e o operador para poder bota-los separados em uma lista
+if not " " in texto:
+  if "+" in texto:
+    texto=texto.replace("+", " + ")
+  if "-" in texto:
+    texto=texto.replace("-", " - ")
+  if "/" in texto:
+    texto=texto.replace("/", " / ")
+  if "x" in texto:
+    texto=texto.replace("x", " x ")
+  if "^" in texto:
+    texto=texto.replace("^", " ^ ")
+
+# split para transformar a expressão em uma lista dividindo os valores, facilitando o calculo 
+texto=texto.split()
+
+x=float(str(texto[0]).replace(",", "."))
+
+y=float(str(texto[2]).replace(",", "."))
+
+escolha=texto[1]
 
 #execulta a operação de acordo com a escolha
-if escolha=="x":
-  resultado=x*y
-elif escolha=="/":
-  resultado=x/y
-elif escolha=="+":
+if escolha=="+":
   resultado=x+y
 elif escolha=="-":
   resultado=x-y
-elif escolha=="*":
+elif escolha=="/":
+  resultado=x/y
+elif escolha=="x":
+  resultado=x*y
+elif escolha=="^":
   resultado=x**y
 
 resultado=f"{resultado:_.2f}"
